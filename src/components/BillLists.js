@@ -7,7 +7,7 @@ class BillLists extends Component {
     const { booking, removeChair } = this.props;
 
     return (
-      <div className="lg:w-full h-full mt-5  max-w-[100%]">
+      <div className="lg:w-full h-full my-5  max-w-[100%]">
         <div className="w-full rounded overflow-hidden border border-solid border-slate-100 ">
           <table className="  lg:w-full border-collapse table-fixed w-full text-sm">
             <thead className="text-xl font-bold">
@@ -36,7 +36,7 @@ class BillLists extends Component {
                     </td>
                     <td className="font-medium px-4 py-2 text-left ">
                       <button
-                        className="bg-white px-4 py-2 rounded text-black font-bold text-sm "
+                        className="bg-white px-4 py-2 rounded text-black font-bold lg:text-sm text-[10px] "
                         onClick={() => removeChair({ soGhe: item.soGhe })}
                       >
                         Cancel
@@ -55,19 +55,18 @@ class BillLists extends Component {
                     : 0
                   ).toLocaleString()}
                 </td>
-                <td className="font-medium px-4 py-2 text-left "></td>
+                <td className="font-medium px-4 py-2 text-left ">
+                  <button
+                    className={`py-3 px-2 bg-[orange] text-black font-bold rounded transition-all ease-in-out duration-700 lg:text-sm text-[10px]  hover:bg-white hover:text-black ${
+                      booking.length > 0 ? "" : "pointer-events-none"
+                    }`}
+                  >
+                    Thanh Toán
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
-        </div>
-        <div className="w-full mt-4 text-right">
-          <button
-            className={`py-3 px-5 bg-[orange] text-black font-bold rounded transition-all ease-in-out duration-300 hover:border border-[orange] hover:bg-transparent hover:text-white ${
-              booking.length > 0 ? "" : "pointer-events-none"
-            }`}
-          >
-            Thanh Toán
-          </button>
         </div>
       </div>
     );
